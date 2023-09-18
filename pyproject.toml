@@ -10,6 +10,87 @@ python = "^3.11"
 django = "^4.2.5"
 
 
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.0.290"
+black = "^23.9.1"
+pyright = "^1.1.327"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+target-version = "py311"
+select = [
+  # pyflakes
+  "F",
+  # pycodestyle
+  "E",
+  "W",
+  # pep8-naming
+  "N",
+  # pylint
+  "PL",
+  # mccabe
+  "C90",
+  # isort
+  "I",
+  # pydocstyle
+  "D",
+  # pyupgrade
+  "UP",
+  # flake8-builtins
+  "A",
+  # flake8-commas
+  "COM",
+  # flake8-bugbear
+  "B",
+  # flake8-comprehensions
+  "C4",
+  # flake8-type-checking
+  "TCH",
+  # flake8-datetimez
+  "DTZ",
+  # flake8-print
+  "T20",
+  # flake8-tidy-imports
+  "TID",
+  # flake8-simplify
+  "SIM",
+  # flake8-quotes
+  "Q",
+  # flake8-use-pathlib
+  "PTH",
+  # flake8-import-conventions
+  "ICN",
+  # flake8-django
+  "DJ",
+]
+ignore = [
+  # pydocstyle: Do not require any docstring
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "D105",
+  "D106",
+  "D107",
+  "D212",
+  "D203",
+  # pydocstyle: Allow blank line after docstring
+  "D202",
+]
+
+[tool.ruff.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+
+[tool.pyright]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+reportUnnecessaryTypeIgnoreComment = true
