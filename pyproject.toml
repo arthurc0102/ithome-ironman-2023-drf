@@ -8,12 +8,15 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^4.2.5"
+djangorestframework = "^3.14.0"
 
 
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.0.290"
 black = "^23.9.1"
 pyright = "^1.1.327"
+django-types = "^0.17.0"
+djangorestframework-types = "^0.8.0"
 
 [build-system]
 requires = ["poetry-core"]

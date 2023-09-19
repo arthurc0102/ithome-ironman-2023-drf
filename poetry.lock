@@ -104,6 +104,43 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-types"
+version = "0.17.0"
+description = "Type stubs for Django"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "django-types-0.17.0.tar.gz", hash = "sha256:c1c42ab78876c57c728342d5ab060725ab371fc8dc83bb85bae0be06846aad70"},
+    {file = "django_types-0.17.0-py3-none-any.whl", hash = "sha256:43d4931159524c1a08b25c1b9a4db2512b7c1234b64b1d4db4aff78881d6afd0"},
+]
+
+[[package]]
+name = "djangorestframework"
+version = "3.14.0"
+description = "Web APIs for Django, made easy."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"},
+    {file = "djangorestframework-3.14.0.tar.gz", hash = "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8"},
+]
+
+[package.dependencies]
+django = ">=3.0"
+pytz = "*"
+
+[[package]]
+name = "djangorestframework-types"
+version = "0.8.0"
+description = "Type stubs for Django Rest Framework"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "djangorestframework-types-0.8.0.tar.gz", hash = "sha256:bed5dc8ce4f3500a4d29632e333262059e2218f2291c88313ce8443c24e50a76"},
+    {file = "djangorestframework_types-0.8.0-py3-none-any.whl", hash = "sha256:5136212ec0df2c11d5ebcf217246f606e68f1d46a770419de84ed676bdab0113"},
+]
+
+[[package]]
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
@@ -184,6 +221,17 @@ all = ["twine (>=3.4.1)"]
 dev = ["twine (>=3.4.1)"]
 
 [[package]]
+name = "pytz"
+version = "2023.3.post1"
+description = "World timezone definitions, modern and historical"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytz-2023.3.post1-py2.py3-none-any.whl", hash = "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7"},
+    {file = "pytz-2023.3.post1.tar.gz", hash = "sha256:7b4fddbeb94a1eba4b557da24f19fdf9db575192544270a9101d8509f9f43d7b"},
+]
+
+[[package]]
 name = "ruff"
 version = "0.0.290"
 description = "An extremely fast Python linter, written in Rust."
@@ -255,4 +303,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "7ba5e40dbc4a35a75122eb152a7a47819575cd9517bcc5121134ed686a309153"
+content-hash = "1574ff4faed30e178fc875fd3bf0af63462c90b705983208b3a21008901f9abd"

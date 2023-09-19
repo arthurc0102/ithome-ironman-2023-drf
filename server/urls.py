@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from server.app.common import views as common_views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("health", common_views.HealthView.as_view()),
 ]
