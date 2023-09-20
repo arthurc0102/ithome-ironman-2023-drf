@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CommonConfig(AppConfig):
+class TodoConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "server.app.common"
+    name = "server.app.todo"
