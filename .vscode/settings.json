@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "isort",
+        "makemigrations",
         "noqa",
         "Pylance",
         "pyproject",
