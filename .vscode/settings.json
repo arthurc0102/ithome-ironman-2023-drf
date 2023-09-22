@@ -5,6 +5,10 @@
         "noqa",
         "Pylance",
         "pyproject",
-        "pyright"
+        "pyright",
+        "queryset",
+        "runserver",
+        "urlpatterns",
+        "viewsets"
     ]
 }
