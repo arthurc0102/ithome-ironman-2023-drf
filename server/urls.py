@@ -16,11 +16,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from rest_framework import routers
 
 from server.app.common import views as common_views
+from server.app.todo import views as todo_views
+
+router = routers.SimpleRouter(trailing_slash=False)
+router.register("todo/tasks", todo_views.TaskViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("health", common_views.HealthView.as_view()),
+    path("api/", include(router.urls)),
 ]
