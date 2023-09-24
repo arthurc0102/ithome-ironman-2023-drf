@@ -7,3 +7,8 @@ from server.app.todo import serializers as todo_serializers
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Task.objects.all()
     serializer_class = todo_serializers.TaskSerializer
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = todo_models.Tag.objects.all()
+    serializer_class = todo_serializers.TagSerializer

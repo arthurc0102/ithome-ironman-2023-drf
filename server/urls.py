@@ -24,6 +24,7 @@ from server.app.todo import views as todo_views
 
 router = routers.SimpleRouter(trailing_slash=False)
 router.register("todo/tasks", todo_views.TaskViewSet)
+router.register("todo/tags", todo_views.TagViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
