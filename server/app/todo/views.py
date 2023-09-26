@@ -8,6 +8,12 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Task.objects.all()
     serializer_class = todo_serializers.TaskSerializer
 
+    def get_serializer_class(self):
+        if self.action == "create":
+            return todo_serializers.TaskCreateSerializer
+
+        return super().get_serializer_class()
+
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Tag.objects.all()

@@ -22,3 +22,8 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = todo_models.Task
         fields = "__all__"
+
+
+class TaskCreateSerializer(TaskSerializer):
+    class Meta(TaskSerializer.Meta):
+        read_only_fields = ("is_finish",)
