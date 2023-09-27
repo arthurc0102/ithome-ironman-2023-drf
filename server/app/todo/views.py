@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import decorators, response, viewsets
 
 from server.app.todo import models as todo_models
 from server.app.todo import serializers as todo_serializers
@@ -13,6 +13,20 @@ class TaskViewSet(viewsets.ModelViewSet):
             return todo_serializers.TaskCreateSerializer
 
         return super().get_serializer_class()
+
+    @decorators.action(methods=["patch"], detail=True)
+    def status(self, request, pk):
+        task = self.get_object()
+
+        serializer = self.get_serializer(
+            task,
+            data={"is_finish": not task.is_finish},
+            partial=True,
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(serializer.data)
 
 
 class TagViewSet(viewsets.ModelViewSet):
