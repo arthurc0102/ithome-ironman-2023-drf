@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 django = "^4.2.5"
 djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.3.0"
 
 
 [tool.poetry.group.lint.dependencies]

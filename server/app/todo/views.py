@@ -1,4 +1,4 @@
-from rest_framework import authentication, decorators, permissions, response, viewsets
+from rest_framework import decorators, response, viewsets
 
 from server.app.todo import models as todo_models
 from server.app.todo import serializers as todo_serializers
@@ -7,9 +7,6 @@ from server.app.todo import serializers as todo_serializers
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Task.objects.all()
     serializer_class = todo_serializers.TaskSerializer
-
-    authentication_classes = (authentication.BasicAuthentication,)
-    permission_classes = (permissions.IsAuthenticated,)
 
     def get_serializer_class(self):
         if self.action == "create":

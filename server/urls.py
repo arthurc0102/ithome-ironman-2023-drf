@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework_simplejwt import views as jwt_views
 
 from server.app.common import views as common_views
 from server.app.todo import views as todo_views
@@ -29,5 +30,7 @@ router.register("todo/tags", todo_views.TagViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("health", common_views.HealthView.as_view()),
+    path("api/token", jwt_views.TokenObtainPairView.as_view()),
+    path("api/token/refresh", jwt_views.TokenRefreshView.as_view()),
     path("api/", include(router.urls)),
 ]
