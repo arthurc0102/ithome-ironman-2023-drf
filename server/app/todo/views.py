@@ -7,6 +7,8 @@ from server.app.todo import serializers as todo_serializers
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Task.objects.order_by("id")
     serializer_class = todo_serializers.TaskSerializer
+    ordering_fields = ("id", "title")
+    search_fields = ("title", "description")
 
     def get_serializer_class(self):
         if self.action == "create":
@@ -32,3 +34,5 @@ class TaskViewSet(viewsets.ModelViewSet):
 class TagViewSet(viewsets.ModelViewSet):
     queryset = todo_models.Tag.objects.order_by("id")
     serializer_class = todo_serializers.TagSerializer
+    ordering_fields = ("id", "name")
+    search_fields = ("name",)
