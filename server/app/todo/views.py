@@ -1,5 +1,6 @@
 from rest_framework import decorators, response, viewsets
 
+from server.app.todo import filters as todo_filters
 from server.app.todo import models as todo_models
 from server.app.todo import serializers as todo_serializers
 
@@ -42,3 +43,4 @@ class TagViewSet(viewsets.ModelViewSet):
     serializer_class = todo_serializers.TagSerializer
     ordering_fields = ("id", "name")
     search_fields = ("name",)
+    filterset_class = todo_filters.TagFilter
