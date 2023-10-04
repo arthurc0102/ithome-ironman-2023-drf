@@ -9,6 +9,12 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = todo_serializers.TaskSerializer
     ordering_fields = ("id", "title")
     search_fields = ("title", "description")
+    filterset_fields = {
+        "is_finish": ("exact",),
+        "tags__name": ("exact",),
+        "id": ("gt", "gte", "lt", "lte"),
+        "title": ("contains", "icontains"),
+    }
 
     def get_serializer_class(self):
         if self.action == "create":
