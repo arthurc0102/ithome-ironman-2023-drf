@@ -9,6 +9,12 @@ class TagSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = todo_models.Category
+        fields = "__all__"
+
+
 class TaskSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
     tag_ids = serializers.PrimaryKeyRelatedField(
@@ -17,6 +23,13 @@ class TaskSerializer(serializers.ModelSerializer):
         many=True,
         queryset=todo_models.Tag.objects.all(),
         source="tags",
+    )
+
+    category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        write_only=True,
+        queryset=todo_models.Category.objects.all(),
+        source="category",
     )
 
     class Meta:

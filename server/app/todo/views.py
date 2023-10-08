@@ -44,3 +44,13 @@ class TagViewSet(viewsets.ModelViewSet):
     ordering_fields = ("id", "name")
     search_fields = ("name",)
     filterset_class = todo_filters.TagFilter
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = todo_models.Category.objects.order_by("id")
+    serializer_class = todo_serializers.CategorySerializer
+    ordering_fields = ("id", "name")
+    search_fields = ("name",)
+    filterset_fields = {
+        "name": ("exact", "contains", "icontains"),
+    }
