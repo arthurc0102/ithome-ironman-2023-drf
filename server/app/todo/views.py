@@ -6,7 +6,11 @@ from server.app.todo import serializers as todo_serializers
 
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = todo_models.Task.objects.order_by("id")
+    queryset = (
+        todo_models.Task.objects.order_by("id")
+        .select_related("category")
+        .prefetch_related("tags")
+    )
     serializer_class = todo_serializers.TaskSerializer
     ordering_fields = ("id", "title")
     search_fields = ("title", "description")
