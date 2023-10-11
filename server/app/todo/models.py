@@ -1,5 +1,7 @@
 from django.db import models
 
+from server.utils import models as model_utils
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -22,8 +24,8 @@ class Task(models.Model):
     is_finish = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag)
     end_at = models.DateTimeField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = model_utils.CreatedAtField()
+    updated_at = model_utils.UpdatedAtField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     def __str__(self):
