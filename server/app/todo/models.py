@@ -27,6 +27,7 @@ class Task(models.Model):
     created_at = model_utils.CreatedAtField()
     updated_at = model_utils.UpdatedAtField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    attachment = models.FileField(blank=True, upload_to="task/attachments/")
 
     def __str__(self):
         return self.title
