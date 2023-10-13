@@ -20,7 +20,7 @@ ruff = "^0.0.290"
 black = "^23.9.1"
 pyright = "^1.1.327"
 django-types = "^0.17.0"
-djangorestframework-types = "^0.8.0"
+djangorestframework-types = "^0.7.1"
 
 
 [tool.poetry.group.dev.dependencies]

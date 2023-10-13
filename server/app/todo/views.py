@@ -21,11 +21,25 @@ class TaskViewSet(viewsets.ModelViewSet):
         "title": ("contains", "icontains"),
     }
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        if not (
+            getattr(self.request.user, "is_staff", False)
+            or getattr(self.request.user, "is_superuser", False)
+        ):
+            return queryset.filter(creator=self.request.user)
+
+        return queryset
+
     def get_serializer_class(self):
         if self.action == "create":
             return todo_serializers.TaskCreateSerializer
 
         return super().get_serializer_class()
+
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
 
     @decorators.action(methods=["patch"], detail=True)
     def status(self, request, pk):

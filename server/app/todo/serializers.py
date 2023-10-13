@@ -32,9 +32,11 @@ class TaskSerializer(serializers.ModelSerializer):
         source="category",
     )
 
+    creator_id = serializers.ReadOnlyField()
+
     class Meta:
         model = todo_models.Task
-        fields = "__all__"
+        exclude = ("creator",)
 
 
 class TaskCreateSerializer(TaskSerializer):

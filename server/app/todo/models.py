@@ -1,6 +1,9 @@
+from django.contrib import auth
 from django.db import models
 
 from server.utils import models as model_utils
+
+User = auth.get_user_model()
 
 
 class Tag(models.Model):
@@ -28,6 +31,7 @@ class Task(models.Model):
     updated_at = model_utils.UpdatedAtField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     attachment = models.FileField(blank=True, upload_to="task/attachments/")
+    creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title
